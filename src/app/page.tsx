@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { revalidatePath } from 'next/cache';
 
 const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -16,13 +17,27 @@ async function getQuestions() {
 export default async function Home() {
   const questions = await getQuestions();
 
+  async function handleSubmit(formData: FormData) {
+    'use server';
+
+    const question = formData.get('question');
+
+    await supabase.from('questions').insert({ text: question });
+
+    // After insert the new question, we need to revalidate the cache
+    // so the new question is displayed in the page
+
+    revalidatePath('/');
+  }
+
   return (
     <div className="grid gap-8">
-      <form className="grid gap-4">
+      <form action={handleSubmit} className="grid gap-4">
         <section className="grid">
           <p className="bg-pink-500 text-white p-4 rounded-t-lg text-xl font-medium">Ask me</p>
           <input
             className="bg-white text-black p-4 rounded-b-lg text-xl"
+            name="question"
             placeholder="Ask me anything"
           />
         </section>
