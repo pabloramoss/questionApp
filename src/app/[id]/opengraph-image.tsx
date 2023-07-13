@@ -30,7 +30,7 @@ export default async function Image({ params: { id } }: { params: { id: string }
       >
         <div
           style={{
-            background: 'hotpink',
+            background: 'linear-gradient(to right, #3b82f6, #06b6d4)',
             color: 'white',
             display: 'flex',
             alignItems: 'center',

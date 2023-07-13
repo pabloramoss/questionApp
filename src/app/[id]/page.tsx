@@ -25,10 +25,7 @@ export default async function Question({ params: { id } }: { params: { id: strin
 
   return (
     <article className="grid gap-4">
-      <div className="flex justify-between">
-        <Link href="/">← Go back</Link>
-        <ShareOnTwittter />
-      </div>
+      <Link href="/">← Go back</Link>
       <section className="grid">
         <p className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 rounded-t-lg text-xl font-medium">
           Ask me
