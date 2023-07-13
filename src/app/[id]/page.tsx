@@ -1,7 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 
-import CopyQuestionToClipborad from './copy-to-clipborad';
+import CopyQuestionToClipboard from './copy-to-clipboard';
+import ShareOnTwittter from './share-on-twitter';
 
 // Abstract this function to a file called src\app\utils\supabase.ts
 const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
@@ -26,15 +27,15 @@ export default async function Question({ params: { id } }: { params: { id: strin
     <article className="grid gap-4">
       <div className="flex justify-between">
         <Link href="/">← Go back</Link>
-        <Link href={`https://twitter.com/intent/tweet?text=Hola%20Mundo`} target="_blank">
-          Share on Twitter
-        </Link>
+        <ShareOnTwittter />
       </div>
       <section className="grid">
-        <p className="bg-pink-500 text-white p-4 rounded-t-lg text-xl font-medium">Ask me</p>
+        <p className="bg-gradient-to-r from-blue-500 to-cyan-500  text-white p-4 rounded-t-lg text-xl font-medium">
+          Ask me
+        </p>
         <p className="bg-white text-black p-4 rounded-b-lg text-xl">{question.text}</p>
       </section>
-      <CopyQuestionToClipborad />
+      <CopyQuestionToClipboard />
     </article>
   );
 }
