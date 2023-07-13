@@ -2,7 +2,6 @@ import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 
 import CopyQuestionToClipboard from './copy-to-clipboard';
-import ShareOnTwittter from './share-on-twitter';
 
 // Abstract this function to a file called src\app\utils\supabase.ts
 const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
