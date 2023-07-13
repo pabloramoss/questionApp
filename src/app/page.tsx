@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
@@ -22,13 +23,15 @@ export default async function Home() {
     'use server';
 
     const question = formData.get('question');
+    const id = Date.now().toString();
 
-    await supabase.from('questions').insert({ text: question });
+    await supabase.from('questions').insert({ text: question, id });
 
     // After insert the new question, we need to revalidate the cache
     // so the new question is displayed in the page
 
     revalidatePath('/');
+    redirect(`/${id}`);
   }
 
   return (

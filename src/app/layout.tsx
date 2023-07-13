@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Questioncy',
-  description: 'Aplicación de preguntas y respuestas anónimas - Goncy',
+  title: 'QuestionApp',
+  description: 'App to ask questions anonymously',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

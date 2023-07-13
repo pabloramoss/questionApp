@@ -7,14 +7,14 @@ const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey!);
 
 async function getQuestion(id: string) {
-  const questions = await supabase
+  const question = await supabase
     .from('questions')
     .select()
     .eq('id', id)
     .single()
     .then(({ data }) => data as { id: string; text: string });
 
-  return questions;
+  return question;
 }
 
 export default async function Question({ params: { id } }: { params: { id: string } }) {
