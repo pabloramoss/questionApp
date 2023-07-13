@@ -1,6 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 
+import CopyQuestionToClipborad from './copy-to-clipborad';
+
 // Abstract this function to a file called src\app\utils\supabase.ts
 const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -27,6 +29,7 @@ export default async function Question({ params: { id } }: { params: { id: strin
         <p className="bg-pink-500 text-white p-4 rounded-t-lg text-xl font-medium">Ask me</p>
         <p className="bg-white text-black p-4 rounded-b-lg text-xl">{question.text}</p>
       </section>
+      <CopyQuestionToClipborad />
     </article>
   );
 }
