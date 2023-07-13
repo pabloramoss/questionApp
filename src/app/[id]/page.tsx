@@ -30,7 +30,7 @@ export default async function Question({ params: { id } }: { params: { id: strin
         <ShareOnTwittter />
       </div>
       <section className="grid">
-        <p className="bg-gradient-to-r from-blue-500 to-cyan-500  text-white p-4 rounded-t-lg text-xl font-medium">
+        <p className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 rounded-t-lg text-xl font-medium">
           Ask me
         </p>
         <p className="bg-white text-black p-4 rounded-b-lg text-xl">{question.text}</p>
