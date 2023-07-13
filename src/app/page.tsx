@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { revalidatePath } from 'next/cache';
+import Link from 'next/link';
 
 const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -51,10 +52,10 @@ export default async function Home() {
       <hr className="opacity-30" />
       <article className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(230px,1fr))] items-start">
         {questions.map((question) => (
-          <section key={question.id}>
+          <Link key={question.id} className="grid" href={`/${question.id}`}>
             <p className="bg-pink-500 text-white p-4 rounded-t-lg text-xl font-medium">Ask me</p>
             <p className="bg-white text-black p-4 rounded-b-lg text-xl">{question.text}</p>
-          </section>
+          </Link>
         ))}
       </article>
     </div>
