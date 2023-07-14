@@ -1,9 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
+const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseKey!);
+export const supabase = createClient(supabaseUrl!, supabaseKey!);
 
 export async function getQuestion(id: string) {
   const question = await supabase
