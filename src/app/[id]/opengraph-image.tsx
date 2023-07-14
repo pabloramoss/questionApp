@@ -1,20 +1,13 @@
-import { createClient } from '@supabase/supabase-js';
 import { ImageResponse } from 'next/server';
+
+import { getQuestion } from '@/utils/supabase';
 
 export const runtime = 'edge';
 
 export const contentType = 'image/png';
-const supabaseUrl = 'https://bilfodlqdkporhdmqwqv.supabase.co';
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey!);
 
 export default async function Image({ params: { id } }: { params: { id: string } }) {
-  const question = await supabase
-    .from('questions')
-    .select()
-    .eq('id', id)
-    .single()
-    .then(({ data }) => data as { id: string; text: string });
+  const question = await getQuestion(id);
 
   return new ImageResponse(
     (

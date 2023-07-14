@@ -1,5 +1,7 @@
 'use client';
 import { ToastContainer, toast } from 'react-toastify';
+
+import Button from '@/components/Button';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function CopyQuestionToClipborad() {
@@ -13,13 +15,7 @@ export default function CopyQuestionToClipborad() {
 
   return (
     <>
-      <button
-        className="rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-4 text-xl hover:opacity-80 transition-colors w-full"
-        type="button"
-        onClick={handleClick}
-      >
-        Copy to clipboard
-      </button>
+      <Button onClick={handleClick}>Copy to clipboard</Button>
       <ToastContainer autoClose={2000} hideProgressBar={true} position="top-center" theme="dark" />
     </>
   );
