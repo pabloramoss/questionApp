@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  color-scheme: dark light;
+  color-scheme: dark;
   background-color: Canvas;
   color: CanvasText;
 }
